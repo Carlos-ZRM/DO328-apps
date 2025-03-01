@@ -7,7 +7,7 @@ const logger = Pino();
 
 // Load variables from .env file
 Dotenv.config();
-const TRACE_COLLECTOR_URL = process.env.TRACE_COLLECTOR_URL || "TODO: add jaeger collector URL";
+const TRACE_COLLECTOR_URL = process.env.TRACE_COLLECTOR_URL || "jaeger-collector.istio-system.svc.cluster.local:14268/api/traces";
 const SERVICEB_URL = process.env.SERVICEB_URL || "http://serviceb:8080";
 
 const tracer = Tracer.create("servicea", TRACE_COLLECTOR_URL, logger);
